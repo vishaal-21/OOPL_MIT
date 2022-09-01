@@ -58,7 +58,7 @@ class Q4
 					sum[i][j]=a[i][j]+b[i][j];
 					System.out.print(sum[i][j]+" ");
 				}
-				System.out.println("");
+				System.out.println();
 			}	
 		}	
 		else 
