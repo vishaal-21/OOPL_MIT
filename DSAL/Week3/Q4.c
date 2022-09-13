@@ -56,7 +56,7 @@ void read(STUDENT* stu, int n)
 void display(STUDENT* stu, int n)
 {
 	int i;
- 	printf("DOB \t\t Registration \t Name \t Address\t College Name \t University Name\n");
+ 	printf("DOB \t Registration \t Name \t Address\t College Name \t University Name\n");
 
  	for(i=0;i<n;i++)
  	{

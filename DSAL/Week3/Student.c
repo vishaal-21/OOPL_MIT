@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 typedef struct
 {
@@ -44,9 +43,9 @@ void sort(Student *stu, int n)
 		{
             if(stu[j].rno>stu[j+1].rno)
             {
-            	temp=stu[i];
-            	stu[i]=stu[j];
-            	stu[j]=temp;
+            	temp=stu[j];
+            	stu[j]=stu[j+1];
+            	stu[j+1]=temp;
             }
         }
     }
