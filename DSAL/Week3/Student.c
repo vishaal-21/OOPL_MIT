@@ -11,6 +11,7 @@ typedef struct
 
 void read(Student *stu, int n)
 {
+	int i;
 	for(i=0;i<n;i++)
 	{
 		printf("Enter the name of student %d : ",i+1);
@@ -29,37 +30,26 @@ void display(Student *stu, int n)
 	printf("Name \t Roll No. \t CGPA\n");
 	for(i=0;i<n;i++)
 	{
-        printf("%s \t %d \t\t %.2f\n",stu[i].name,stu[i].rno,stu[i].cgpa);
+        printf("%s \t %d \t\t %.2f\n",(stu+i)->name,(stu+i)->rno,(stu+i)->cgpa);
 	}
 }
 
 void sort(Student *stu, int n)
 {
+	Student temp;
 	int i,j;
 	for(i=0;i<n-1;i++)
 	{
-		int pos=i;
-		for(j=i+1;j<n;j++)
+		for(j=0;j<n-i-1;j++)
 		{
             if(stu[j].rno>stu[j+1].rno)
-                position=j;
+            {
+            	temp=stu[i];
+            	stu[i]=stu[j];
+            	stu[j]=temp;
+            }
         }
-
-        if(position!=i)
-        {
-			temp=stu[j].rno;
-			stu[j].rno=stu[j+1].rno;
-			stu[j+1].rno=s;
-
-			temp1=stu[j].cgpa;
-			stu[j].cgpa=stu[j+1].cgpa;
-			stu[j+1].cgpa=s;
-
-			temp3 = stu[j].name;
-			stu[j].name = stu[j+1].name;
-			stu[j+1].name = temp3;
-		}
-	}
+    }
 }
 
 void main()

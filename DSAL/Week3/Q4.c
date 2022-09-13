@@ -17,8 +17,8 @@ typedef struct
 
 typedef struct
 {
-	char college_name;
-	char university_name;
+	char college_name[50];
+	char university_name[50];
 } COLLEGE;
 
 typedef struct
@@ -55,14 +55,15 @@ void read(STUDENT* stu, int n)
 
 void display(STUDENT* stu, int n)
 {
+	int i;
  	printf("DOB \t\t Registration \t Name \t Address\t College Name \t University Name\n");
 
  	for(i=0;i<n;i++)
  	{
- 		printf("%d-%d-%d \t %d \t %s \t %s \t %s \t %s",(stu+i)->d.day,
+ 		printf("%d-%d-%d \t %d \t %s \t %s \t %s \t\t %s\n",(stu+i)->d.day,
  			(stu+i)->d.month,(stu+i)->d.year,(stu+i)->in.reg_no,
  			(stu+i)->in.name,(stu+i)->in.address,
- 			(stu+i)->c.college_name,(stu+i)->c.university_name)
+ 			(stu+i)->c.college_name,(stu+i)->c.university_name);
  	}
 }
 
