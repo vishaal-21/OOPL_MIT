@@ -12,8 +12,8 @@ begin
 $dumpfile("Q4_tb.vcd");
 $dumpvars(0, Q4_tb);
 
-a[0]=1; a[1]=1;  
-b[0]=1; b[1]=1;  
+a=2'b10;  
+b=2'b11;
 #20;
 
 $display("Test complete");
