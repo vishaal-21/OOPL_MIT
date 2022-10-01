@@ -4,7 +4,7 @@ wire [5:0] e,g;
 output reg lesser,greater,equal;
 
 integer i;
-always @(a or b)
+always @(a | b)
 begin
 	for(i=0;i<5;i++)
 	begin	
@@ -20,5 +20,5 @@ g[3] = (a[4] ~^ b[4]) & (a[3] & ~b[3]);
 g[4] = (a[4] & ~b[4]);
 
 greater = g[0] | g[1] | g[2] | g[3] | g[4];
-lesser = ~(equal + greater);
+lesser = ~(equal | greater);
 endmodule
