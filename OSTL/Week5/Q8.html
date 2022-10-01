@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>Program 8</title>
+</head>
+<body>
+	<canvas id="canvas" width="1000px" height="700px" style="border:2px solid"></canvas>
+	<script>
+		var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.lineWidth=9;
+		ctx.moveTo(10,10);
+		ctx.lineTo(210,210);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.lineWidth=7;
+		ctx.arc(350,100,75,0,2*Math.PI);
+		ctx.fillStyle="blue";
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.lineWidth=5;
+		ctx.rect(500,20,350,400);
+		ctx.fillStyle="red";
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.lineWidth=3;
+		ctx.arc(100,350,75,4,2*Math.PI);
+		ctx.stroke();
+
+		var grd = ctx.createLinearGradient(0,0,350,0);
+		grd.addColorStop(0, "blue");
+		grd.addColorStop(1, "white");
+		ctx.fillStyle=grd;
+		ctx.fillRect(20,475,300,100);
+
+		var grad = ctx.createRadialGradient(440,525,15,450,540,110);
+		grad.addColorStop(0,"red");
+		grad.addColorStop(1,"white");
+		ctx.fillStyle = grad;
+		ctx.fillRect(350,475,300,100);
+	</script>
+</body>
+</html>
