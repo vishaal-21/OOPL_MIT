@@ -1,5 +1,3 @@
-//WORK IN PROGRESS
-
 #include<stdio.h>
 typedef struct
 {
@@ -17,8 +15,8 @@ int pop(Stack *s)
 void display(Stack *s)
 {
         int i;
-        for(i=s->top;i>=0;i--)
-                printf("%d ",s->arr[s->top]);
+        for(i=0;i<=s->top;i++)
+                printf("%d ",s->arr[i]);
 }
 void main()
 {
@@ -37,14 +35,34 @@ void main()
         printf("Enter a number (<%d) to remove elements : ",n);
         scanf("%d",&k);
 
-        for (int i=0; i<k; i++)
-                push(&st,a[i]);
-
-        display(&st);
-
-        for(i=k;i<n;i++)
+        for (int i=0;i<n;i++) 
         {
-                if(st.arr[i]>st.arr[st.top])
-                        pop(&st);
+                int j=k;
+                while(i<k) 
+                        push(&st,a[i++]);
+
+                int count=0;
+                while(j>0)
+                {
+                        if(st.arr[st.top]<a[i])
+                        {
+                                pop(&st);
+                                j--;
+                                count++;
+                        }
+                        else if(st.arr[st.top]>a[i])
+                        {
+                                push(&st,a[i]);
+                                break;
+                        }
+                }
+                if(count==k)
+                {
+                        while(i<n)
+                                push(&st,a[i++]);
+
+                        break;
+                }
         }
+        display(&st);
 }
