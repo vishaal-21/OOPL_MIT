@@ -45,17 +45,14 @@ void main()
 	Stack st;
 	char prefix[50];
 	st.top=-1;
-	int i=0,k=0;
+	int i,k=0;
 	printf("Enter numerical prefix expression : ");
 	gets(prefix);
 
 	int len=strlen(prefix);
-    strrev(prefix);
-    printf("%s\n",prefix);
-
     int op1,op2,result;
 
-    while(prefix[i]!='\0')
+    for(i=strlen(prefix)-1;i>=0;i--)
     {
         int ch=prefix[i];
         if(isdigit(ch))
@@ -67,7 +64,6 @@ void main()
             result=evaluate(ch,op1,op2);
             push(&st,result,len);
         }
-        i++;
     }
-    printf("Result = %d",pop(&st));
+    printf("Result = %d\n",pop(&st));
 }

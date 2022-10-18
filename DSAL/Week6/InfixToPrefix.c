@@ -39,15 +39,14 @@ void main()
 	Stack st;
 	char infix[50],prefix[50],ch;
 	st.top=-1;
-	int i=0,k=0;
+	int i,k=0;
 	printf("Enter infix expression : ");
 	gets(infix);
 
 	int len=strlen(infix);
 	push(&st,'#',len);
-    strrev(infix);
 
-	while(infix[i]!='\0')
+	for(i=strlen(infix)-1;i>=0;i--)
     {
         ch=infix[i];
         switch(ch)
@@ -76,15 +75,14 @@ void main()
         default:
             prefix[k++]=ch;
         }
-
-        i++;
     }
 
     while(st.arr[st.top]!='#')
         prefix[k++]=pop(&st);
 
     prefix[k]='\0';
-    strrev(prefix);
 
-    printf("Postfix expression is : \n%s",prefix);
+    printf("Prefix expression is : ");
+    for(i=strlen(prefix)-1;i>=0;i--)
+        printf("%c",prefix[i]);
 }
